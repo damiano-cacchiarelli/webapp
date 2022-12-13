@@ -1,8 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class MyWebsiteTest {
     private WebDriver driver;
 
+    @Tag("AcceptanceTest")
     @BeforeEach
     void startConfiguration(){
         WebDriverManager.chromedriver().setup();
@@ -18,6 +16,7 @@ public class MyWebsiteTest {
     }
 
     @Test
+    @Tag("AcceptanceTest")
     void checkProsSite() throws InterruptedException {
 
         driver.get("http://localhost:8080/maven-webapp/");
@@ -33,6 +32,7 @@ public class MyWebsiteTest {
     }
 
     @AfterEach
+    @Tag("AcceptanceTest")
     void endConfiguration(){
         driver.close();
         driver.quit();

@@ -15,6 +15,7 @@ public class SeleniumTest {
 
 
     @BeforeEach
+    @Tag("AcceptanceTest")
     void startConfiguration(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -22,6 +23,7 @@ public class SeleniumTest {
     }
 
     @Test
+    @Tag("AcceptanceTest")
     void checkProsSite() throws InterruptedException {
 
         driver.get("http://pros.unicam.it/");
@@ -37,6 +39,7 @@ public class SeleniumTest {
     }
 
     @Test
+    @Tag("AcceptanceTest")
     void checkProsSiteSearch() throws InterruptedException {
 
         driver.get("https://pros.unicam.it/");
@@ -65,6 +68,7 @@ public class SeleniumTest {
     }
 
     @AfterEach
+    @Tag("AcceptanceTest")
     void endConfiguration(){
         driver.close();
         driver.quit();
