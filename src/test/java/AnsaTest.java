@@ -5,6 +5,8 @@ import org.junit.After;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
+
+import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,16 +29,19 @@ public class AnsaTest {
   private Map<String, Object> vars;
   JavascriptExecutor js;
   @Before
+  @Tag("AcceptanceTest")
   public void setUp() {
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
   @After
+  @Tag("AcceptanceTest")
   public void tearDown() {
     driver.quit();
   }
   @Test
+  @Tag("AcceptanceTest")
   public void ansa() {
     driver.get("https://www.ansa.it/");
     driver.manage().window().setSize(new Dimension(870, 930));
